@@ -1,0 +1,48 @@
+---
+import Header from "../components/Header.astro";
+import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle = "关于";
+const identity = {
+  name: "卡塔酷栗",
+  description: "一个热爱编程的程序员",
+  email: "1370594838@qq.com",
+  hobbies: ["编程", "电影", "桌游"],
+};
+const skills = ["JavaScript", "HTML", "CSS", "Vue3", "Springboot", "Electron"];
+let skillColor = "green";
+let fontWeight = "bold";
+let textCase = "uppercase";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <style
+    define:vars={{
+      skillColor,
+      fontWeight,
+      textCase,
+    }}
+  >
+    body {
+      h1 {
+        color: rgba(66, 10, 208, 0.874);
+        font-size: 2rem;
+      }
+      .skill {
+        color: var(--skillColor);
+        font-weight: var(--fontWeight);
+        text-transform: var(--textCase);
+      }
+    }
+  </style>
+  <h2>我的信息</h2>
+  <p>我的名称：{identity.name}</p>
+  <p>我是{identity.description}</p>
+  <p>我的邮箱：{identity.email}</p>
+  <p>我的爱好：{identity.hobbies.join(", ")}</p>
+  <h2>我的技术栈</h2>
+  <ul>
+    {skills.map((skill) => <li class="skill">{skill}</li>)}
+  </ul>
+</BaseLayout>

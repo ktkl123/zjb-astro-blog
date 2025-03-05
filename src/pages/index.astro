@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/global.css";
+import Greeting from "../components/Greeting.jsx";
+const pageTitle = "首页";
+const identity = {
+  name: "卡塔酷栗",
+  description: "一个热爱编程的程序员",
+  email: "1370594838@qq.com",
+  hobbies: ["编程", "电影", "桌游"],
+};
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <p>不断进步，一起进步</p>
+  <Greeting client:load messages={["aaa", "bbb", "ccc", "ddd", "eee"]} />
+</BaseLayout>
